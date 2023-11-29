@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// Player aircraft movement behavior
 
 
 var _direction_y = lengthdir_y(1, image_angle)
@@ -7,35 +6,17 @@ var _direction_x = lengthdir_x(1, image_angle)
 
 var _sign = sign(image_xscale)
 
-if _direction_y > 0.5 {
-	if plane_speed * _sign < (default_speed * _sign + 3) {
-		plane_speed += 0.1 * _sign
-	}
-}
-
-if _direction_y < -0.5 {
-	if plane_speed * _sign > (default_speed * _sign - 3) {
-		plane_speed -= 0.1 * _sign
-	}
-}
-
-if _direction_y > -0.5 and _direction_y < 0.5 and plane_speed < default_speed {
-	plane_speed += 0.1
-}
-
-if _direction_y > -0.5 and _direction_y < 0.5 and plane_speed > default_speed {
-	plane_speed -= 0.1
-}
+var _gravity = 3 * _direction_y
 
 direction = point_direction(0,0, _direction_x, _direction_y)
 
 if player_control {
 	if (keyboard_check(vk_right)) {
-	    image_angle -= 1.0 + 1.0 * abs(speed / 6.0); // Rotate the sprite 5 degrees to the right
+	    image_angle -= 1.0 + 1.0 * abs(speed / 7.0); // Rotate the sprite 5 degrees to the right
 	}
 
 	if (keyboard_check(vk_left)) {
-	    image_angle += 1.0 + 1.0 * abs(speed / 6.0); // Rotate the sprite 5 degrees to the left
+	    image_angle += 1.0 + 1.0 * abs(speed / 7.0); // Rotate the sprite 5 degrees to the left
 	}
 	
 	if (keyboard_check(vk_space) and firing_cooldown == false) {
@@ -55,17 +36,17 @@ if player_control {
 		show_debug_message(y + _gun_yoffset)
 		instance_create_layer(x + _gun_xoffset, y + _gun_yoffset, "Instances", obj_player_bullet)	
 		firing_cooldown = true
-		alarm[0] = 5
+		alarm[0] = 10
 	}
 }
 
 if speed < 0 {
-	speed = -plane_speed
+	speed = -plane_speed + _gravity
 } else {
-	speed = plane_speed
+	speed = plane_speed + _gravity
 }
 
-if ((x  < -50 or x > room_width + 50) and player_control == true) {
+if ((x  < -100 or x > room_width + 100) and player_control == true) {
 	_direction_x *= -1
 	direction =  point_direction(0,0, -_direction_x, _direction_y)
 	image_xscale *= -1
