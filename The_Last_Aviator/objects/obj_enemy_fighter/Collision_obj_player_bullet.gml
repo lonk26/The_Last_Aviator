@@ -1,3 +1,5 @@
 /// Taking damage from the player
 
-health -= 5
+health -= 100
+
+instance_destroy(other)

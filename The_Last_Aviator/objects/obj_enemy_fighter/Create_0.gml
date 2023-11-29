@@ -3,10 +3,13 @@
 
 enum STATES {
 	REGULAR = 0,
-	CHASING = 1
+	CHASING = 1,
+	DESTROYED = 2
 }
 
 enemy_state = STATES.REGULAR
+
+crash_coordinates = noone
 
 plane_speed = default_speed
 

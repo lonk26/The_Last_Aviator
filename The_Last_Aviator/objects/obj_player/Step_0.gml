@@ -2,7 +2,7 @@
 
 
 var _direction_y = lengthdir_y(1, image_angle)
-var _direction_x = lengthdir_x(1, image_angle)
+var _direction_x = lengthdir_x(1, image_angle) // -1 to 1 (will flip signs when plane hits a wall
 
 var _sign = sign(image_xscale)
 
@@ -55,6 +55,23 @@ if ((x  < -100 or x > room_width + 100) and player_control == true) {
 	player_control = false
 }
 
-if x > 1 and player_control == false {
+/// --------------------- Forcing aircraft back within game world -----------------------------
+
+if (y < -100) and player_control == true { 
+	if sign(_direction_y * _sign) == -1 and sign(_direction_x * _sign) == 1 {
+		image_angle -= 100	
+		var _temp_y = lengthdir_y(1, image_angle)
+		var _temp_x = lengthdir_x(1, image_angle)
+		direction =  point_direction(0,0, _temp_x, _temp_y)
+	} else {
+		image_angle += 100
+		var _temp_y = lengthdir_y(1, image_angle)
+		var _temp_x = lengthdir_x(1, image_angle)
+		direction =  point_direction(0,0, _temp_x, _temp_y)
+	}
+	player_control = false
+}
+
+if (x > 1 and y > 0) and player_control == false {
 	player_control = true	
 }

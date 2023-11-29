@@ -1,5 +1,7 @@
 /// Enemy plane behavior
 
+/// ----------------------------- Enemy Fighter Essential Variables ------------------------------
+
 var _distance_to_player = distance_to_object(obj_player)
 
 var _direction_y = lengthdir_y(1, image_angle)
@@ -11,14 +13,21 @@ direction = point_direction(0,0, _direction_x, _direction_y)
 
 var _gravity = 3 * _direction_y
 
+if health <= 0 and crash_coordinates == noone {
+	crash_coordinates = get_crash_coordinate(x, y, (sign(_direction_x) * _sign))
+	enemy_state = STATES.DESTROYED
+}
+
+/// ------------------------------ Enemy Fighter State Code --------------------------------------
+
 if enemy_state = STATES.REGULAR {
+	plane_speed = default_speed
 	if _distance_to_player < 300 and chasing_cooldown == false {
 		show_debug_message("chasing")
 		enemy_state = STATES.CHASING	
+		alarm[0] = 180
 	}
-	alarm[0] = 180
 }
-
 
 if enemy_state = STATES.CHASING {
 	var _direction_to_player = point_direction(x, y, obj_player.x, obj_player.y)
@@ -35,10 +44,29 @@ if enemy_state = STATES.CHASING {
 		}
 	}
 	
-	if _distance_to_player < 100 and plane_speed > default_speed - 3 {
+	if _distance_to_player < 100 and plane_speed > default_speed - 1 {
 		plane_speed -= 0.1
 	} else if _distance_to_player > 100 and plane_speed < default_speed {
 		plane_speed += 0.1	
+	}
+}
+
+if enemy_state = STATES.DESTROYED {
+	
+	var _crash_direction = point_direction(x, y, crash_coordinates[0], crash_coordinates[1])
+	
+	var _angle_diff = angle_difference(image_angle, _crash_direction)
+
+	if abs(_angle_diff) > 5 {
+		var _turning_direction = sign(_angle_diff)
+		
+		if _turning_direction > 0 {
+			image_angle += 1.0 + 1.0 * abs(speed / 7.0)
+			_gravity += 0.5
+		} else {
+			image_angle -= 1.0 + 1.0 * abs(speed / 7.0)
+			_gravity += 0.5
+		}
 	}
 }
 
@@ -48,10 +76,26 @@ if _sign == 1 {
 	speed = -plane_speed + _gravity
 }
 
+/// ------------------ Forcing aircraft back within game world --------------------------
+
 if ((x  < -50 or x > room_width + 50)) {
 	_direction_x *= -1
-	direction =  point_direction(0,0, -_direction_x, _direction_y)
+	direction = point_direction(0,0, -_direction_x, _direction_y)
 	image_xscale *= -1
 	//image_yscale *= 1
 	speed *= -1
+}
+
+if (y < -100) { 
+	if sign(_direction_y * _sign) == -1 and sign(_direction_x * _sign) == 1 {
+		image_angle -= 100	
+		var _temp_y = lengthdir_y(1, image_angle)
+		var _temp_x = lengthdir_x(1, image_angle)
+		direction =  point_direction(0,0, _temp_x, _temp_y)
+	} else {
+		image_angle += 100
+		var _temp_y = lengthdir_y(1, image_angle)
+		var _temp_x = lengthdir_x(1, image_angle)
+		direction =  point_direction(0,0, _temp_x, _temp_y)
+	}
 }
