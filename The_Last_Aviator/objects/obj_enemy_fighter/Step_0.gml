@@ -18,13 +18,14 @@ if health <= 0 and crash_coordinates == noone {
 	enemy_state = STATES.DESTROYED
 }
 
+show_debug_message("sign: " + string(_sign))
+
 /// ------------------------------ Enemy Fighter State Code --------------------------------------
 
 if enemy_state = STATES.REGULAR {
 	plane_speed = default_speed
 	
 	if _distance_to_player < 300 and chasing_cooldown == false {
-		show_debug_message("chasing")
 		enemy_state = STATES.CHASING	
 		alarm[0] = 180
 	}
@@ -35,7 +36,10 @@ if enemy_state = STATES.REGULAR {
 		
 		var _angle_diff = angle_difference(image_angle, _level_flight_direction)
 		
-		if abs(_angle_diff) > 0.5 and _sign == -1 {
+		show_debug_message(abs(_angle_diff) % 180)
+		
+		/// Variation accounts for enemy getting inverted if hitting a border
+		if ((abs(_angle_diff) < 178 or abs(_angle_diff) > 182)) and _sign == -1 {
 			var _turning_direction = sign(_angle_diff)
 			
 			if _turning_direction > 0 {
@@ -45,7 +49,7 @@ if enemy_state = STATES.REGULAR {
 			}
 		}
 		
-		if abs(_angle_diff) > 0.5 and _sign == 1 {
+		if ((abs(_angle_diff) < 0.0 or abs(_angle_diff) > 2)) and _sign == 1 {
 			var _turning_direction = sign(_angle_diff)
 			
 			if _turning_direction > 0 {
@@ -63,7 +67,10 @@ if enemy_state = STATES.CHASING {
 	
 	var _angle_diff = angle_difference(image_angle, _direction_to_player)
 	
-	if abs(_angle_diff) > 0.5 and _sign == -1 {
+	show_debug_message(abs(_angle_diff) % 180)
+	
+	/// Variation accounts for enemy getting inverted if hitting a border
+	if ((abs(_angle_diff) < 178 or abs(_angle_diff) > 182)) and _sign == -1 {
 		var _turning_direction = sign(_angle_diff)
 		
 		if _turning_direction > 0 {
@@ -73,7 +80,7 @@ if enemy_state = STATES.CHASING {
 		}
 	}
 	
-	if abs(_angle_diff) > 0.5 and _sign	== 1 {
+	if ((abs(_angle_diff) < 0.0 or abs(_angle_diff) > 2)) and _sign	== 1 {
 		var _turning_direction = sign(_angle_diff)
 			
 		if _turning_direction > 0 {
@@ -95,19 +102,28 @@ if enemy_state = STATES.DESTROYED {
 	var _crash_direction = point_direction(x, y, crash_coordinates[0], crash_coordinates[1])
 	
 	var _angle_diff = angle_difference(image_angle, _crash_direction)
+	
+	show_debug_message(abs(_angle_diff) % 180)
 
-	if abs(_angle_diff) > 5 {
+	/// Variation accounts for enemy getting inverted if hitting a border
+	if ((abs(_angle_diff) < 178 or abs(_angle_diff) > 182)) and _sign == -1 {
 		var _turning_direction = sign(_angle_diff)
-		
+			
 		if _turning_direction > 0 {
 			image_angle += 1.0 + 1.0 * abs(speed / 7.0)
-			_gravity += 0.5
 		} else {
 			image_angle -= 1.0 + 1.0 * abs(speed / 7.0)
-			_gravity += 0.5
 		}
-	} else {
+	}
 		
+	if ((abs(_angle_diff) < 0.0 or abs(_angle_diff) > 2)) and _sign == 1 {
+		var _turning_direction = sign(_angle_diff)
+			
+		if _turning_direction > 0 {
+			image_angle -= 1.0 + 1.0 * abs(speed / 7.0)
+		} else {
+			image_angle += 1.0 + 1.0 * abs(speed / 7.0)
+		}
 	}
 }
 

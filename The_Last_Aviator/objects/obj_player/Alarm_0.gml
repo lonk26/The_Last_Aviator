@@ -1,4 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// Resetting the firing cooldown
 
 firing_cooldown = false
