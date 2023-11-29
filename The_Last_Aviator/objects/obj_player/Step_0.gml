@@ -8,6 +8,8 @@ var _sign = sign(image_xscale)
 
 var _gravity = 3 * _direction_y
 
+show_debug_message(_direction_y)
+
 direction = point_direction(0,0, _direction_x, _direction_y)
 
 if player_control {
@@ -38,12 +40,20 @@ if player_control {
 		firing_cooldown = true
 		alarm[0] = 10
 	}
+	
+	if (keyboard_check(vk_up) and throttle < 1) {
+		throttle += 0.01	
+	}
+	
+	if (keyboard_check(vk_down) and throttle > 0) {
+		throttle -= 0.01
+	}
 }
 
 if speed < 0 {
-	speed = -plane_speed + _gravity
+	speed = -plane_speed + _gravity + (throttle * 3)
 } else {
-	speed = plane_speed + _gravity
+	speed = plane_speed + _gravity + (throttle * 3)
 }
 
 if ((x  < -100 or x > room_width + 100) and player_control == true) {
