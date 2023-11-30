@@ -18,6 +18,7 @@
   ],
   "ResourceOrderSettings": [
     {"name":"spr_entente_bomber","order":5,"path":"sprites/spr_entente_bomber/spr_entente_bomber.yy",},
+    {"name":"CreateBullet","order":1,"path":"scripts/CreateBullet/CreateBullet.yy",},
     {"name":"obj_friendly_wingman","order":8,"path":"objects/obj_friendly_wingman/obj_friendly_wingman.yy",},
     {"name":"spr_button","order":8,"path":"sprites/spr_button/spr_button.yy",},
     {"name":"rm_menu","order":1,"path":"rooms/rm_menu/rm_menu.yy",},
@@ -34,7 +35,7 @@
     {"name":"spr_entente_fighter","order":3,"path":"sprites/spr_entente_fighter/spr_entente_fighter.yy",},
     {"name":"spr_bullet","order":4,"path":"sprites/spr_bullet/spr_bullet.yy",},
     {"name":"obj_button_parent","order":9,"path":"objects/obj_button_parent/obj_button_parent.yy",},
-    {"name":"obj_player_bullet","order":2,"path":"objects/obj_player_bullet/obj_player_bullet.yy",},
+    {"name":"obj_bullet","order":2,"path":"objects/obj_bullet/obj_bullet.yy",},
     {"name":"obj_enemy_bomber","order":4,"path":"objects/obj_enemy_bomber/obj_enemy_bomber.yy",},
   ],
 }

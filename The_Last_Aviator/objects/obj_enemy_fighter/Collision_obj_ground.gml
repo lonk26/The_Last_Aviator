@@ -1,4 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// Destroy the plane if it crashes into the ground
 
 instance_destroy()

@@ -1,6 +1,9 @@
 /// Enemy plane behavior
 
-var _distance_to_player = distance_to_object(obj_player)
+var _distance_to_player = noone
+if instance_exists(obj_player) {
+	_distance_to_player = distance_to_object(obj_player)
+}
 
 var _direction_x = lengthdir_x(1, image_angle)
 var _direction_y = lengthdir_y(1, image_angle)
@@ -11,8 +14,8 @@ direction = point_direction(0,0, _direction_x, _direction_y)
 
 var _gravity = 3 * _direction_y
 
-if health <= 0 and crash_coordinates == noone {
-	crash_coordinates = get_crash_coordinate(x, y, (sign(_direction_x) * _sign))
+if enemy_health <= 0 and bomber_crash_coordinates == noone {
+	bomber_crash_coordinates = get_crash_coordinate(x, y, (sign(_direction_x) * _sign))
 	bomber_state = STATES.DESTROYED
 }
 
@@ -25,7 +28,6 @@ if bomber_state = STATES.REGULAR {
 		
 		var _angle_diff = angle_difference(image_angle, _level_flight_direction)
 		
-		show_debug_message(abs(_angle_diff) % 180)
 		
 		/// Variation accounts for enemy getting inverted if hitting a border
 		if ((abs(_angle_diff) < 178 or abs(_angle_diff) > 182)) and _sign == -1 {
@@ -49,15 +51,45 @@ if bomber_state = STATES.REGULAR {
 		}
 	}
 	
+	if _distance_to_player != noone {
+		if _distance_to_player < 500 {
+			if !burst_cooldown {
+					if !firing_cooldown {
+						var _gun_offset
+						var _gun_xoffset
+						var _gun_yoffset
+						if _sign == 1 {
+							_gun_offset = 20
+							_gun_xoffset = _gun_offset * lengthdir_x(1.25, image_angle + 45)
+							_gun_yoffset = _gun_offset * lengthdir_y(1.5, image_angle + 45)
+						} else {
+							_gun_offset = 10
+							_gun_xoffset = _gun_offset * _sign * lengthdir_x(1, image_angle)
+							_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
+						}
+						
+						create_bullet(x + _gun_xoffset, y + _gun_yoffset, point_direction(x + _gun_xoffset, y +_gun_yoffset, obj_player.x, obj_player.y), 1, "enemy")
+						bullets_fired += 1
+						firing_cooldown = true
+						alarm[0] = 10
+				}
+				if bullets_fired == burst_bullets {
+					burst_cooldown = true
+					bullets_fired = 0
+					alarm[1] = 210
+				}
+			}
+		}
+	}
+	
 }
 
 if bomber_state = STATES.DESTROYED {
 	
-	var _crash_direction = point_direction(x, y, crash_coordinates[0], crash_coordinates[1])
+	var _crash_direction = point_direction(x, y, bomber_crash_coordinates[0], bomber_crash_coordinates[1])
 	
 	var _angle_diff = angle_difference(image_angle, _crash_direction)
 	
-	show_debug_message(abs(_angle_diff) % 180)
 
 	/// Variation accounts for enemy getting inverted if hitting a border
 	if ((abs(_angle_diff) < 178 or abs(_angle_diff) > 182)) and _sign == -1 {

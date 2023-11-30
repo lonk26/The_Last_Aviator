@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// If the fighter is not destroyed, reset it's state to regular and run it's chase cooldown
 
 if fighter_state != STATES.DESTROYED {
 	fighter_state = STATES.REGULAR

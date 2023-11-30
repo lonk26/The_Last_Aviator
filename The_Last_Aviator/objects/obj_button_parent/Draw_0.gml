@@ -1,5 +1,6 @@
 draw_self()
 
+draw_set_color(draw_color)
 draw_set_font(fnt_menu)
 
 draw_set_halign(fa_center)

@@ -35,6 +35,7 @@
   },
   "resources": [
     {"id":{"name":"spr_entente_bomber","path":"sprites/spr_entente_bomber/spr_entente_bomber.yy",},},
+    {"id":{"name":"CreateBullet","path":"scripts/CreateBullet/CreateBullet.yy",},},
     {"id":{"name":"obj_friendly_wingman","path":"objects/obj_friendly_wingman/obj_friendly_wingman.yy",},},
     {"id":{"name":"spr_button","path":"sprites/spr_button/spr_button.yy",},},
     {"id":{"name":"GetCrashCoordinate","path":"scripts/GetCrashCoordinate/GetCrashCoordinate.yy",},},
@@ -55,7 +56,7 @@
     {"id":{"name":"spr_bullet","path":"sprites/spr_bullet/spr_bullet.yy",},},
     {"id":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},},
     {"id":{"name":"spr_central_fighter","path":"sprites/spr_central_fighter/spr_central_fighter.yy",},},
-    {"id":{"name":"obj_player_bullet","path":"objects/obj_player_bullet/obj_player_bullet.yy",},},
+    {"id":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},},
     {"id":{"name":"obj_enemy_bomber","path":"objects/obj_enemy_bomber/obj_enemy_bomber.yy",},},
     {"id":{"name":"rm_endless","path":"rooms/rm_endless/rm_endless.yy",},},
   ],
