@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "GetCrashCoordinate",
+  "name": "scr_GetCrashCoordinate",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

@@ -7,3 +7,8 @@ enum STATES {
 	CHASING = 1,
 	DESTROYED = 2
 }
+
+score = 0
+
+_GUI_text = ds_list_create()
+ds_list_add(_GUI_text, "")

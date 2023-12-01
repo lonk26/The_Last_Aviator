@@ -64,7 +64,8 @@ if fighter_state = STATES.REGULAR {
 	
 }
 
-if fighter_state = STATES.CHASING {
+if fighter_state = STATES.CHASING and instance_exists(obj_player) {
+	
 	var _direction_to_player = point_direction(x, y, obj_player.x, obj_player.y)
 	
 	var _angle_diff = angle_difference(image_angle, _direction_to_player)
