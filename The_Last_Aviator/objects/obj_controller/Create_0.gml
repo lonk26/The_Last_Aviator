@@ -9,6 +9,3 @@ enum STATES {
 }
 
 score = 0
-
-_GUI_text = ds_list_create()
-ds_list_add(_GUI_text, "")
