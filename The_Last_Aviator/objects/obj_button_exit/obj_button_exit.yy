@@ -1,15 +1,18 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_ground",
+  "name": "obj_button_exit",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Misc",
-    "path": "folders/Objects/Misc.yy",
+    "name": "Menu Buttons",
+    "path": "folders/Objects/Menu Buttons.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_button_parent",
+    "path": "objects/obj_button_parent/obj_button_parent.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -26,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_ground",
-    "path": "sprites/spr_ground/spr_ground.yy",
+    "name": "spr_button",
+    "path": "sprites/spr_button/spr_button.yy",
   },
   "spriteMaskId": null,
   "visible": true,

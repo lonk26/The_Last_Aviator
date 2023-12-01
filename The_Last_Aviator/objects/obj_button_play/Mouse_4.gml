@@ -6,4 +6,4 @@
 // Inherit the parent event
 event_inherited();
 
-room_goto(rm_endless)
+obj_button_controller.menu_state = MENU_STATES.PLAY

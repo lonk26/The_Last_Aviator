@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Animations and Particles",
+    "path": "folders/Objects/Animations and Particles.yy",
   },
   "parentObjectId": null,
   "persistent": false,

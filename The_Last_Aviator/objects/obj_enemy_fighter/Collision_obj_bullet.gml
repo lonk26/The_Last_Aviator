@@ -2,7 +2,7 @@
 
 if other.team == "player" {
 	
-	enemy_health -= 100
+	enemy_health -= other.damage
 
 	instance_destroy(other)
 

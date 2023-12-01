@@ -1,4 +1,24 @@
 {
-  "FolderOrderSettings": [],
-  "ResourceOrderSettings": [],
+  "FolderOrderSettings": [
+    {"name":"Menu Buttons","order":2,"path":"folders/Objects/Menu Buttons.yy",},
+    {"name":"Planes","order":3,"path":"folders/Objects/Planes.yy",},
+    {"name":"Animations and Particles","order":4,"path":"folders/Objects/Animations and Particles.yy",},
+    {"name":"Misc","order":5,"path":"folders/Objects/Misc.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"obj_friendly_wingman","order":3,"path":"objects/obj_friendly_wingman/obj_friendly_wingman.yy",},
+    {"name":"obj_button_controls","order":7,"path":"objects/obj_button_controls/obj_button_controls.yy",},
+    {"name":"obj_controller","order":1,"path":"objects/obj_controller/obj_controller.yy",},
+    {"name":"obj_particles_smoke","order":2,"path":"objects/obj_particles_smoke/obj_particles_smoke.yy",},
+    {"name":"obj_enemy_fighter","order":1,"path":"objects/obj_enemy_fighter/obj_enemy_fighter.yy",},
+    {"name":"obj_ground","order":2,"path":"objects/obj_ground/obj_ground.yy",},
+    {"name":"obj_button_play_endless","order":5,"path":"objects/obj_button_play_endless/obj_button_play_endless.yy",},
+    {"name":"obj_button_play_campaign","order":4,"path":"objects/obj_button_play_campaign/obj_button_play_campaign.yy",},
+    {"name":"obj_button_play","order":2,"path":"objects/obj_button_play/obj_button_play.yy",},
+    {"name":"obj_player","order":2,"path":"objects/obj_player/obj_player.yy",},
+    {"name":"obj_particles_hit","order":1,"path":"objects/obj_particles_hit/obj_particles_hit.yy",},
+    {"name":"obj_button_exit","order":6,"path":"objects/obj_button_exit/obj_button_exit.yy",},
+    {"name":"obj_button_controller","order":1,"path":"objects/obj_button_controller/obj_button_controller.yy",},
+    {"name":"obj_button_back","order":3,"path":"objects/obj_button_back/obj_button_back.yy",},
+  ],
 }
