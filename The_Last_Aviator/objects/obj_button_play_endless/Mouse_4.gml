@@ -5,7 +5,7 @@
 
 // Inherit the parent event
 event_inherited();
-if button_active == true {
-	obj_button_controller.menu_state = MENU_STATES.DEFAULT
-}
 
+if button_active == true {
+	room_goto(rm_endless)	
+}

@@ -68,7 +68,7 @@ if bomber_state = STATES.REGULAR {
 							_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
 						}
 						
-						create_bullet(x + _gun_xoffset, y + _gun_yoffset, point_direction(x + _gun_xoffset, y +_gun_yoffset, obj_player.x, obj_player.y), 1, "enemy")
+						create_bullet(x + _gun_xoffset, y + _gun_yoffset, point_direction(x + _gun_xoffset, y +_gun_yoffset, obj_player.x, obj_player.y), 1, "enemy", 5)
 						bullets_fired += 1
 						firing_cooldown = true
 						alarm[0] = 10

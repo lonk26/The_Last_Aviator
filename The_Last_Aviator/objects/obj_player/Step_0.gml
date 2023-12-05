@@ -39,7 +39,7 @@ if player_control == true {
 			_gun_xoffset = _gun_offset * _sign * lengthdir_x(1, image_angle)
 			_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
 		}
-		create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "player")
+		create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "player", 10)
 		firing_cooldown = true
 		alarm[0] = 10
 	}

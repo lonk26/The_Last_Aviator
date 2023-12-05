@@ -1,8 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if position_meeting(mouse_x, mouse_y, self) {
-	draw_color = c_white	
+if button_active == false {
+	visible = false	
 } else {
-	draw_color = c_black
+	visible = true
+	if position_meeting(mouse_x, mouse_y, self) {
+		button_state = "selected"	
+	} else {
+		button_state = "unselected"
+	}
 }

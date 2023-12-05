@@ -6,7 +6,9 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,},
   ],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},"propertyId":{"name":"button_text","path":"objects/obj_button_parent/obj_button_parent.yy",},"value":"BACK",},
+  ],
   "parent": {
     "name": "Menu Buttons",
     "path": "folders/Objects/Menu Buttons.yy",
@@ -30,7 +32,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_button",
+    "path": "sprites/spr_button/spr_button.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

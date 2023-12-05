@@ -6,4 +6,6 @@
 // Inherit the parent event
 event_inherited();
 
-obj_button_controller.menu_state = MENU_STATES.PLAY
+if button_active == true {
+	obj_button_controller.menu_state = MENU_STATES.PLAY
+}
