@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_CreateExplosion",
+  "name": "scr_CreateParticle",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

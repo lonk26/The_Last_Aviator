@@ -1,5 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-create_explosion(x, y, "small")
+create_particle(x, y, "small_exp")
 instance_destroy()

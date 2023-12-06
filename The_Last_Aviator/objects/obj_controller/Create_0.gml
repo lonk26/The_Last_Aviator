@@ -9,3 +9,5 @@ enum STATES {
 }
 
 score = 0
+
+room_continue = false

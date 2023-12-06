@@ -17,6 +17,14 @@ var _gravity = 3 * _direction_y
 if enemy_health <= 0 and bomber_crash_coordinates == noone {
 	bomber_crash_coordinates = get_crash_coordinate(x, y, (sign(_direction_x) * _sign))
 	bomber_state = STATES.DESTROYED
+	create_particle(x, y, "aircraft")
+	score += 100
+}
+
+if enemy_health <= 100 and create_smoke == true {
+	create_smoke = false
+	create_particle(x, y, "smoke")
+	alarm[3] = 30
 }
 
 /// ------------------------------ Enemy Fighter State Code --------------------------------------
@@ -68,7 +76,7 @@ if bomber_state = STATES.REGULAR {
 							_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
 						}
 						
-						create_bullet(x + _gun_xoffset, y + _gun_yoffset, point_direction(x + _gun_xoffset, y +_gun_yoffset, obj_player.x, obj_player.y), 1, "enemy", 5)
+						create_bullet(x + _gun_xoffset, y + _gun_yoffset, point_direction(x + _gun_xoffset, y +_gun_yoffset, obj_player.x, obj_player.y), 1, "enemy", bullet_damage)
 						bullets_fired += 1
 						firing_cooldown = true
 						alarm[0] = 10
@@ -76,7 +84,7 @@ if bomber_state = STATES.REGULAR {
 				if bullets_fired == burst_bullets {
 					burst_cooldown = true
 					bullets_fired = 0
-					alarm[1] = 210
+					alarm[1] = random_range(120, 210)
 				}
 			}
 		}

@@ -12,6 +12,12 @@ if other.team == "player" {
 
 	_particle_instance.particle_lifespan = 15
 	
+	if fighter_state == STATES.DESTROYED {
+		score += 10	
+	} else {
+		score += 15
+	}
+	
 } else {
 	
 }

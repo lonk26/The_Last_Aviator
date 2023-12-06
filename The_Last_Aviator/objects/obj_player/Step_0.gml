@@ -14,6 +14,13 @@ if player_health <= 0 and player_crash_coordinates == noone {
 	show_debug_message("player killed!")
 	player_crash_coordinates = get_crash_coordinate(x, y, (sign(_direction_x) * _sign))
 	player_control = false
+	create_particle(x, y, "aircraft")
+}
+
+if player_health <= 50 and create_smoke == true {
+	create_smoke = false
+	create_particle(x, y, "smoke")
+	alarm[1] = 30
 }
 
 
@@ -39,7 +46,7 @@ if player_control == true {
 			_gun_xoffset = _gun_offset * _sign * lengthdir_x(1, image_angle)
 			_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
 		}
-		create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "player", 10)
+		create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "player", bullet_damage)
 		firing_cooldown = true
 		alarm[0] = 10
 	}

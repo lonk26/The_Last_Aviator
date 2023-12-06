@@ -1,3 +1,4 @@
+	draw_set_alpha(1.0)
 	
 	if button_state == "selected" and button_active == true {
 		sprite_index = spr_button_selected

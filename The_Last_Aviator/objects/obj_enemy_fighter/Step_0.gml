@@ -21,6 +21,14 @@ var _gravity = 3 * _direction_y
 if enemy_health <= 0 and fighter_crash_coordinates == noone {
 	fighter_crash_coordinates = get_crash_coordinate(x, y, (sign(_direction_x) * _sign))
 	fighter_state = STATES.DESTROYED
+	create_particle(x, y, "aircraft")
+	score += 50
+}
+
+if enemy_health <= 40 and create_smoke == true {
+	create_smoke = false
+	create_particle(x, y, "smoke")
+	alarm[4] = 30
 }
 
 /// ------------------------------ Enemy Fighter State Code --------------------------------------
@@ -28,9 +36,9 @@ if enemy_health <= 0 and fighter_crash_coordinates == noone {
 if fighter_state = STATES.REGULAR {
 	plane_speed = default_speed
 	
-	if _distance_to_player < 300 and chasing_cooldown == false {
+	if _distance_to_player < 400 and chasing_cooldown == false {
 		fighter_state = STATES.CHASING	
-		alarm[0] = random_range(150, 210)
+		alarm[0] = random_range(150, 270)
 	}
 	
 
@@ -103,7 +111,7 @@ if fighter_state = STATES.CHASING and instance_exists(obj_player) {
 						_gun_xoffset = _gun_offset * _sign * lengthdir_x(1, image_angle)
 						_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
 					}
-					create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "enemy", 5)
+					create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "enemy", bullet_damage)
 					bullets_fired += 1
 					firing_cooldown = true
 					alarm[2] = 10

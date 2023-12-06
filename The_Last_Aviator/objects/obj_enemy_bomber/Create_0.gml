@@ -10,3 +10,4 @@ bomber_crash_coordinates = noone
 /// Setting the plane speed to the default_speed class variable
 plane_speed = default_speed
 
+create_smoke = true

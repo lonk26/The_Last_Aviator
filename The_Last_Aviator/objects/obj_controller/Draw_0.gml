@@ -1,27 +1,42 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
-if instance_exists(obj_player) {
-	var _border_size = 4
-	
-	var _text_x = 60
-	var _text_y = 60
-	
-	draw_set_font(fnt_GUI);
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
-	draw_set_colour(c_white);
-	
-	var _score_text = "SCORE: " + string(score)
-	var _index = 0
-	
-	draw_text(_text_x, _text_y, _score_text)
+if !instance_exists(obj_player) {
+	draw_set_halign(fa_center)
+	draw_set_font(fnt_menu)
+	var _camera = view_camera[0]
+	var _gameoverstring = "Game Over! Press R to restart." + "\n" + "Level Score: " + string(score)
+	draw_text(camera_get_view_x(_camera) + camera_get_view_width(_camera) * 0.5, 
+				camera_get_view_y(_camera) + camera_get_view_height(_camera) * 0.4, _gameoverstring)
 }
 
-
-if !instance_exists(obj_player) and room != rm_menu {
-	
+if room == rm_mission_1 and !instance_exists(obj_enemy_fighter) {
+	if instance_exists(obj_level_transition) {
+		if obj_level_transition.transition == false {
+			obj_level_transition.transition = true	
+		}
+	}
+	draw_set_halign(fa_center)
+	draw_set_font(fnt_menu)
+	var _camera = view_camera[0]
+	var _mission1completestring = "Mission Complete!" + "\n" + "Level Score: " + string(score)
+	draw_text(camera_get_view_x(_camera) + camera_get_view_width(_camera) * 0.5, 
+				camera_get_view_y(_camera) + camera_get_view_height(_camera) * 0.4, _mission1completestring)
 }
+
+if room == rm_mission_2 and !instance_exists(obj_enemy_fighter) and !instance_exists(obj_enemy_bomber) {
+	if instance_exists(obj_level_transition) {
+		if obj_level_transition.transition == false {
+			obj_level_transition.transition = true	
+		}
+	}
+	draw_set_halign(fa_center)
+	draw_set_font(fnt_menu)
+	var _camera = view_camera[0]
+	var _mission1completestring = "Mission Complete!" + "\n" + "Level Score: " + string(score)
+	draw_text(camera_get_view_x(_camera) + camera_get_view_width(_camera) * 0.5, 
+				camera_get_view_y(_camera) + camera_get_view_height(_camera) * 0.4, _mission1completestring)
+}
+
 
 

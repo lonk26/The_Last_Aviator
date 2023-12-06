@@ -12,3 +12,5 @@ plane_speed = default_speed
 /// Setting the enemy health from instance variable
 
 image_xscale *= -1
+
+create_smoke = true

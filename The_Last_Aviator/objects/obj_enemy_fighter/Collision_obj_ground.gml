@@ -1,4 +1,4 @@
 /// Destroy the plane if it crashes into the ground
 
-create_explosion(x, y, "small")
+create_particle(x, y, "small_exp")
 instance_destroy()

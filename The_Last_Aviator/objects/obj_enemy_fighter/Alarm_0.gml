@@ -3,5 +3,5 @@
 if fighter_state != STATES.DESTROYED {
 	fighter_state = STATES.REGULAR
 	chasing_cooldown = true
-	alarm[1] = 150
+	alarm[1] = random_range(120, 210)
 }

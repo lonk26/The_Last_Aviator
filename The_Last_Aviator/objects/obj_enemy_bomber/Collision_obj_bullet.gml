@@ -12,7 +12,12 @@ if other.team == "player" {
 	_particle_instance.particle_gravity = 2.0
 
 	_particle_instance.particle_lifespan = 15
-	
+
+	if bomber_state == STATES.DESTROYED {
+		score += 15	
+	} else {
+		score += 30
+	}
 } else {
 	
 }

@@ -3,3 +3,5 @@
 plane_speed = default_speed
 
 player_crash_coordinates = noone
+
+create_smoke = true
