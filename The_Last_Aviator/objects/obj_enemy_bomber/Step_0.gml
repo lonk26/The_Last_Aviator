@@ -19,6 +19,12 @@ if enemy_health <= 0 and bomber_crash_coordinates == noone {
 	bomber_state = STATES.DESTROYED
 	create_particle(x, y, "aircraft")
 	score += 100
+	if room = rm_endless {
+		var _rand = random_range(0,100)
+		if _rand < obj_controller.health_spawnrate * 2 * 100 {
+			instance_create_layer(x,y, "Instances", obj_health)	
+		}
+	}
 }
 
 if enemy_health <= 100 and create_smoke == true {
@@ -60,7 +66,7 @@ if bomber_state = STATES.REGULAR {
 	}
 	
 	if _distance_to_player != noone {
-		if _distance_to_player < 500 {
+		if _distance_to_player < 900 {
 			if !burst_cooldown {
 					if !firing_cooldown {
 						var _gun_offset

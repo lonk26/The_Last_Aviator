@@ -4,7 +4,6 @@
 switch menu_state {
 	
 	case MENU_STATES.DEFAULT:
-	show_debug_message("default")
 	// Visible buttons
 		obj_button_play.button_active = true
 		obj_button_controls.button_active = true

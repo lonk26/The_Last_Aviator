@@ -23,6 +23,12 @@ if enemy_health <= 0 and fighter_crash_coordinates == noone {
 	fighter_state = STATES.DESTROYED
 	create_particle(x, y, "aircraft")
 	score += 50
+	if room = rm_endless {
+		var _rand = random_range(0,100)
+		if _rand < obj_controller.health_spawnrate * 100 {
+			instance_create_layer(x,y, "Instances", obj_health)	
+		}
+	}
 }
 
 if enemy_health <= 40 and create_smoke == true {
@@ -36,7 +42,7 @@ if enemy_health <= 40 and create_smoke == true {
 if fighter_state = STATES.REGULAR {
 	plane_speed = default_speed
 	
-	if _distance_to_player < 400 and chasing_cooldown == false {
+	if _distance_to_player < 800 and chasing_cooldown == false {
 		fighter_state = STATES.CHASING	
 		alarm[0] = random_range(150, 270)
 	}
