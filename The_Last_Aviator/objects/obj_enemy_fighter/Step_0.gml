@@ -138,6 +138,7 @@ if fighter_state = STATES.CHASING and instance_exists(obj_player) {
 }
 
 if fighter_state = STATES.DESTROYED {
+	audio_play_sound(snd_planeFall,1,false)
 	
 	var _crash_direction = point_direction(x, y, fighter_crash_coordinates[0], fighter_crash_coordinates[1])
 	

@@ -11,5 +11,6 @@ if room == rm_mission_1 and !instance_exists(obj_enemy_fighter) and room_continu
 }
 
 if room == rm_mission_2 and !instance_exists(obj_enemy_fighter) and !instance_exists(obj_enemy_bomber) and room_continue == true {
+	audio_stop_all()
 	room_goto(rm_menu)	
 }

@@ -46,6 +46,8 @@ if player_control == true {
 			_gun_xoffset = _gun_offset * _sign * lengthdir_x(1, image_angle)
 			_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
 		}
+		audio_sound_pitch(snd_gunShot, random_range(0.4, 0.8));
+		audio_play_sound(snd_gunShot,1,false)
 		create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "player", bullet_damage)
 		firing_cooldown = true
 		alarm[0] = 10
@@ -61,6 +63,8 @@ if player_control == true {
 }
 
 if player_crash_coordinates != noone and player_control == false {
+	audio_stop_sound(snd_planeEngine)
+	audio_play_sound(snd_planeFall,1,false)
 	
 	var _crash_direction = point_direction(x, y, player_crash_coordinates[0], player_crash_coordinates[1])
 	

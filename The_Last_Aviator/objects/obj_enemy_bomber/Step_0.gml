@@ -99,6 +99,7 @@ if bomber_state = STATES.REGULAR {
 }
 
 if bomber_state = STATES.DESTROYED {
+	audio_play_sound(snd_planeFall,1,false)
 	
 	var _crash_direction = point_direction(x, y, bomber_crash_coordinates[0], bomber_crash_coordinates[1])
 	

@@ -14,3 +14,4 @@ plane_speed = default_speed
 image_xscale *= -1
 
 create_smoke = true
+

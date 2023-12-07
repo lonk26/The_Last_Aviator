@@ -5,3 +5,5 @@ plane_speed = default_speed
 player_crash_coordinates = noone
 
 create_smoke = true
+
+audio_play_sound(snd_planeEngine,1,true)
