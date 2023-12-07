@@ -83,6 +83,7 @@ if bomber_state = STATES.REGULAR {
 						}
 						
 						create_bullet(x + _gun_xoffset, y + _gun_yoffset, point_direction(x + _gun_xoffset, y +_gun_yoffset, obj_player.x, obj_player.y), 1, "enemy", bullet_damage)
+						audio_play_sound(snd_enemyFire,1,false,1,0,0.2)
 						bullets_fired += 1
 						firing_cooldown = true
 						alarm[0] = 10

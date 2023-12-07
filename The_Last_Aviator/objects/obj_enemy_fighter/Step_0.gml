@@ -118,6 +118,7 @@ if fighter_state = STATES.CHASING and instance_exists(obj_player) {
 						_gun_yoffset = _gun_offset * _sign * lengthdir_y(1.5, image_angle + 45)
 					}
 					create_bullet(x + _gun_xoffset, y + _gun_yoffset, image_angle, sign(speed), "enemy", bullet_damage)
+					audio_play_sound(snd_enemyFire,1,false,1,0,0.5)
 					bullets_fired += 1
 					firing_cooldown = true
 					alarm[2] = 10
