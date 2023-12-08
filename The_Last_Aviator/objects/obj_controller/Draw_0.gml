@@ -5,7 +5,7 @@ if !instance_exists(obj_player) {
 	draw_set_halign(fa_center)
 	draw_set_font(fnt_menu)
 	var _camera = view_camera[0]
-	var _gameoverstring = "Game Over! Press R to restart." + "\n" + "Level Score: " + string(score)
+	var _gameoverstring = "Game Over! Press R to restart." + "\n" + "Level Score: " + string(score) + "\n" + "Or press 'Esc' to return to main menu"
 	draw_text(camera_get_view_x(_camera) + camera_get_view_width(_camera) * 0.5, 
 				camera_get_view_y(_camera) + camera_get_view_height(_camera) * 0.4, _gameoverstring)
 }

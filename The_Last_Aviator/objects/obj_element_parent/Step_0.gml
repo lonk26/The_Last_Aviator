@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-player_health = 100
-
-instance_destroy(other)
+if element_active == true {
+	visible = true	
+} else {
+	visible = false
+}

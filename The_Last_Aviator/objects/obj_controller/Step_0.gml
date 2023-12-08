@@ -6,6 +6,10 @@ if !instance_exists(obj_player) and keyboard_check_pressed(ord("R")) {
 	room_restart()
 }
 
+if !instance_exists(obj_player) and keyboard_check_pressed(vk_escape) {
+	room_goto(rm_menu)	
+}
+
 if room == rm_mission_1 and !instance_exists(obj_enemy_fighter) and room_continue == true {
 	room_goto(rm_mission_2)
 }
