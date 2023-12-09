@@ -28,6 +28,7 @@
     {"name":"snd_campaignMusic","order":2,"path":"sounds/snd_campaignMusic/snd_campaignMusic.yy",},
     {"name":"obj_ground","order":2,"path":"objects/obj_ground/obj_ground.yy",},
     {"name":"snd_gunShot","order":5,"path":"sounds/snd_gunShot/snd_gunShot.yy",},
+    {"name":"obj_fullscreen","order":4,"path":"objects/obj_fullscreen/obj_fullscreen.yy",},
     {"name":"spr_health","order":6,"path":"sprites/spr_health/spr_health.yy",},
     {"name":"spr_partial","order":5,"path":"sprites/spr_partial/spr_partial.yy",},
     {"name":"spr_explosion_killed","order":4,"path":"sprites/spr_explosion_killed/spr_explosion_killed.yy",},

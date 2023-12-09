@@ -74,6 +74,7 @@
     {"id":{"name":"obj_ground","path":"objects/obj_ground/obj_ground.yy",},},
     {"id":{"name":"snd_gunShot","path":"sounds/snd_gunShot/snd_gunShot.yy",},},
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
+    {"id":{"name":"obj_fullscreen","path":"objects/obj_fullscreen/obj_fullscreen.yy",},},
     {"id":{"name":"spr_health","path":"sprites/spr_health/spr_health.yy",},},
     {"id":{"name":"spr_partial","path":"sprites/spr_partial/spr_partial.yy",},},
     {"id":{"name":"spr_explosion_killed","path":"sprites/spr_explosion_killed/spr_explosion_killed.yy",},},
